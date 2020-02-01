@@ -29,4 +29,4 @@ trait OrderingInstance {
   }
 }
 
-object ordering extends OrderingInstance
+object JavaTimeOrdering extends OrderingInstance
