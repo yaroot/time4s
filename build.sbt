@@ -6,8 +6,8 @@ lazy val root = project.in(file("."))
 
 lazy val commonSettings = Seq(
   organization := "com.github.yaroot.time4s",
-  scalaVersion := "2.12.10",
-  crossScalaVersions := List("2.12.10", "2.13.1"),
+  scalaVersion := "2.13.2",
+  crossScalaVersions := List("2.12.11", "2.13.2"),
   scalacOptions in (Compile, console) --= Seq("-Ywarn-unused:imports", "-Xfatal-warnings"),
   publish / skip := true,
   scalafmtOnCompile := true,
