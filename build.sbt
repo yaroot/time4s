@@ -2,7 +2,7 @@ lazy val root = project
   .in(file("."))
   .aggregate(time4s)
   .aggregate(`time4s-test`)
-  .aggregate(`time4s-spire`)
+  .aggregate(`time4s-cats`)
 
 lazy val commonSettings = Seq(
   organization := "com.github.yaroot.time4s",
@@ -48,14 +48,14 @@ lazy val `time4s-test` = project
   .settings(testDeps)
   .dependsOn(time4s)
 
-lazy val `time4s-spire` = project
-  .in(file("time4s-spire"))
+lazy val `time4s-cats` = project
+  .in(file("time4s-cats"))
   .settings(commonSettings)
   .dependsOn(time4s)
   .settings(
     libraryDependencies ++= {
       Seq(
-        "org.typelevel" %% "spire" % "0.17.0-M1"
+        "org.typelevel" %% "cats-kernel" % "2.1.1"
       )
     }
   )
