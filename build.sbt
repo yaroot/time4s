@@ -22,29 +22,29 @@ lazy val commonSettings = Seq(
   dynver ~= (_.replace('+', '-'))
 )
 
-lazy val testDeps = Seq(
-  libraryDependencies ++= {
-    Seq(
-      "io.monix" %% "minitest" % "2.7.0" % Test
-    )
-  }
+lazy val testDependencies = Seq(
+  libraryDependencies ++= Seq(
+    "io.monix" %% "minitest"      % "2.7.0" % Test,
+    "io.monix" %% "minitest-laws" % "2.8.2" % Test
+  )
+)
+
+lazy val catsDependencies = Seq(
+  libraryDependencies ++= Seq(
+    "org.typelevel" %% "cats-core" % "2.1.1",
+    "org.typelevel" %% "cats-laws" % "2.1.1" % Test
+  )
 )
 
 lazy val time4s = project
   .in(file("time4s"))
   .settings(commonSettings)
   .settings(publish / skip := false)
-  .settings(testDeps)
+  .settings(testDependencies)
 
 lazy val `time4s-cats` = project
   .in(file("time4s-cats"))
   .settings(commonSettings)
   .dependsOn(time4s)
-  .settings(
-    libraryDependencies ++= {
-      Seq(
-        "org.typelevel" %% "cats-core" % "2.1.1"
-      )
-    }
-  )
-  .settings(testDeps)
+  .settings(catsDependencies)
+  .settings(testDependencies)
