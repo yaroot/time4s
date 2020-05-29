@@ -55,7 +55,7 @@ lazy val `time4s-cats` = project
   .settings(
     libraryDependencies ++= {
       Seq(
-        "org.typelevel" %% "cats-kernel" % "2.1.1"
+        "org.typelevel" %% "cats-core" % "2.1.1"
       )
     }
   )
