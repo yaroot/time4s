@@ -1,7 +1,6 @@
 lazy val root = project
   .in(file("."))
   .aggregate(time4s)
-  .aggregate(`time4s-test`)
   .aggregate(`time4s-cats`)
 
 lazy val commonSettings = Seq(
@@ -26,7 +25,7 @@ lazy val commonSettings = Seq(
 lazy val testDeps = Seq(
   libraryDependencies ++= {
     Seq(
-      "io.monix" %% "minitest" % "2.7.0"
+      "io.monix" %% "minitest" % "2.7.0" % Test
     )
   }
 )
@@ -35,18 +34,7 @@ lazy val time4s = project
   .in(file("time4s"))
   .settings(commonSettings)
   .settings(publish / skip := false)
-  .settings(
-    libraryDependencies ++= {
-      Seq(
-        )
-    }
-  )
-
-lazy val `time4s-test` = project
-  .in(file("time4s-test"))
-  .settings(commonSettings)
   .settings(testDeps)
-  .dependsOn(time4s)
 
 lazy val `time4s-cats` = project
   .in(file("time4s-cats"))
@@ -59,3 +47,4 @@ lazy val `time4s-cats` = project
       )
     }
   )
+  .settings(testDeps)
