@@ -15,7 +15,7 @@ lazy val commonSettings = Seq(
   fork in run := true,
   Test / fork := true,
   parallelExecution in Test := false,
-  addCompilerPlugin("org.typelevel"    % "kind-projector"      % "0.11.1" cross CrossVersion.full),
+  addCompilerPlugin("org.typelevel"    % "kind-projector"      % "0.11.2" cross CrossVersion.full),
   // wartremoverErrors in (Compile, compile) ++= Warts.unsafe, // .all
   wartremoverErrors := Nil,
   testFrameworks += new TestFramework("minitest.runner.Framework"),
