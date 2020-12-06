@@ -27,7 +27,7 @@ lazy val commonSettings = Seq(
 lazy val testDeps = Seq(
   libraryDependencies ++= {
     Seq(
-      "io.monix"          %% "minitest"                     % "2.9.0"
+      "io.monix"          %% "minitest"                     % "2.9.1"
     )
   }
 )
