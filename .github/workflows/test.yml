@@ -10,9 +10,7 @@ jobs:
     - uses: actions/setup-java@v2
       with:
         java-version: '1.8'
-        java-package: jdk
-        architecture: x64
-        redis version: '5'
+        distribution: 'zulu'
     - run: |
         curl https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > sbt && chmod +x sbt
         ./sbt +test
